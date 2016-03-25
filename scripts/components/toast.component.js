@@ -46,7 +46,7 @@ var ToastComponent = (function () {
     ToastComponent = __decorate([
         core_1.Component({
             selector: 'toast',
-            templateUrl: '/templates/toast.html'
+            templateUrl: 'templates/toast.html'
         }), 
         __metadata('design:paramtypes', [toast_service_1.ToastService])
     ], ToastComponent);
