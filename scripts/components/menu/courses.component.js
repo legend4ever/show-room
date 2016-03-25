@@ -37,7 +37,7 @@ var CoursesComponent = (function () {
     CoursesComponent = __decorate([
         core_1.Component({
             selector: 'my-courses',
-            templateUrl: '/templates/courses.html',
+            templateUrl: 'bamboo-house/templates/courses.html',
             pipes: [course_pipe_1.CoursePipe],
             directives: [course_component_1.CourseComponent, toast_component_1.ToastComponent]
         }), 
