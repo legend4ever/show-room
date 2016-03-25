@@ -53,7 +53,7 @@ var HomeComponent = (function () {
     HomeComponent = __decorate([
         core_1.Component({
             selector: 'my-home',
-            templateUrl: 'bamboo-house/templates/home.html',
+            templateUrl: 'templates/home.html',
             directives: [courses_component_1.CoursesComponent, course_component_1.CourseComponent, carousel_1.CAROUSEL_DIRECTIVES, router_1.RouterLink],
             providers: [menu_service_1.MenuService]
         }),
