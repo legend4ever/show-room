@@ -1,0 +1,47 @@
+
+<div class="bamboo-container">
+    <div id="order-pane" class="panel panel-default">
+        <div class="panel-heading">Your Order</div>
+        <div class="panel-body">
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Qty</th>
+                        <th><span class="pull-right">Price</span></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="#item of items">
+                        <td class="order-item">{{item.Name}}</td>
+                        <td><input type="text" [(ngModel)]="item.Qty" class="order-qty" #qty></td>
+                        <td class="order-price"><span class="pull-right">{{ item.Qty * item.Price|number:'.2-2' }}</span></td>
+                        <td>
+                            <button type="button" class="btn btn-default btn-sm">
+                                <span class="glyphicon glyphicon-trash" aria-hidden="true" (click)="onDelete(item)"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td colspan="2"><span class="pull-right">{{total|number:'.2-2'}}</span></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="panel-footer">
+            Footer
+            <button type="button" class="btn btn-primary pull-right" (click)="onCheckout()">
+                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                Check-Out
+            </button>
+            <button type="button" class="btn btn-primary pull-right" (click)="onUpdate()">
+                <span class="glyphicon glyphicon-saved" aria-hidden="true"></span>
+                Save
+            </button>
+        </div>
+    </div>
+</div>
+

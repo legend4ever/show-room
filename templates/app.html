@@ -1,0 +1,168 @@
+<header>
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#featured"></a>
+            </div><!-- navbar-header -->
+            <div class="collapse navbar-collapse" id="collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#featured">Home</a></li>
+                    <li><a href="#mission">Mission</a></li>
+                    <li><a href="#services">Menu</a></li>
+                    <li><a href="#staff">Chefs</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                </ul>
+            </div><!-- collapse navbar-collapse -->
+        </div><!-- container -->
+    </nav>
+</header>
+<div class="main">
+    <div id="featured">
+        <carousel [interval]="interval" [noWrap]="noWrapSlides">
+            <slide *ngFor="#slidez of slides; #index=index" [active]="slidez.active">
+                <img [src]="slidez.image" style="margin:auto">
+                <div class="carousel-caption">
+                    <p>{{slidez.text}}</p>
+                </div>
+            </slide>
+        </carousel>
+    </div>
+    <div class="page" id="mission">
+        <div class="content container">
+            <h2>Our Mission</h2>
+            <div class="row">
+                <p class="col-md-5 col-md-offset-1">The Kitchen Cuisine Restaurant offers a great tasting menu to its customers, depending on their varied tastes. From seafood to dessert to Mexican food, everything looks really delicious. Among the Ninety Nine Restaurant's menu includes the ALL STAR SAMPLER, BONELESS BUFFALO WINGS, TOASTED RAVIOLI, CALYPSO COCONUT SHRIMP, OUTRAGEOUS POTATO SKINS, GOLD FEVER WINGS, and many more.</p>
+                <p class="col-md-5">We strive to be your pet's medical experts from youth through the senior years. We build preventative health care plans for each and every one of our patients, based on breed, age, and sex, so that your pet receives the most appropriate care at crucial milestones. We want to give your pet a long and healthy&nbsp;life.</p>
+            </div><!-- row -->
+        </div><!-- content container -->
+    </div><!-- mission page -->
+    <div id="services" class="page">
+        <div class="bamboo-container services">
+            <!--<ul class="menu">
+                <li>
+                    <a [routerLink]="['Courses']">
+                        <span class="icon-wrap icon-effect-3 icon-effect-3a">
+                            <span class="glyphicon glyphicon-list-alt icon" aria-hidden="true"></span>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['Courses']">
+                        <span class="icon-wrap icon-effect-3 icon-effect-3a">
+                            <span class="glyphicon glyphicon-inbox icon" aria-hidden="true"></span>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['Courses']">
+                        <span class="icon-wrap icon-effect-3 icon-effect-3a">
+                            <span class="glyphicon glyphicon-print icon" aria-hidden="true"></span>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['Courses']">
+                        <span class="icon-wrap icon-effect-3 icon-effect-3a">
+                            <span class="glyphicon glyphicon-phone icon" aria-hidden="true"></span>
+                        </span>
+                    </a>
+                </li>
+            </ul>-->
+            <div class="menu_container">
+                <a [routerLink]="['Courses']" class="menu_item">
+                    <span class="icon-wrap icon-effect-3 icon-effect-3b">
+                        <span class="glyphicon glyphicon-list-alt icon" aria-hidden="true"></span>
+                    </span>
+                </a>
+                <a [routerLink]="['Order']" class="menu_item">
+                    <span class="icon-wrap icon-effect-3 icon-effect-3b">
+                        <span class="glyphicon glyphicon-inbox icon" aria-hidden="true"></span>
+                    </span>
+                </a>
+                <a [routerLink]="['Order']" class="menu_item">
+                    <span class="icon-wrap icon-effect-3 icon-effect-3b">
+                        <span class="glyphicon glyphicon-print icon" aria-hidden="true"></span>
+                    </span>
+                </a>
+                <a [routerLink]="['Order']" class="menu_item">
+                    <span class="icon-wrap icon-effect-3 icon-effect-3b">
+                        <span class="glyphicon glyphicon-phone icon" aria-hidden="true"></span>
+                    </span>
+                </a>
+            </div>
+            <router-outlet></router-outlet>
+        </div>
+    </div><!-- services page -->
+    <div class="page" id="staff">
+        <div class="container-fluid">
+            <h2 id="ourstaff">Our Chef</h2>
+            <div class="row">
+                <div class="doctor col-lg-4">
+                    <div class="row">
+                        <div class="photo col-xs-6 col-xs-offset-3 col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-2 col-lg-4 col-lg-offset-0">
+                            <img class="img-circle" src="images/doctor-winthrop.jpg" alt="Photo of Dr Sanders">
+                        </div><!-- photo -->
+                        <div class="info col-xs-8 col-xs-offset-2 col-sm-7 col-sm-offset-0 col-md-6 col-lg-8">
+                            <h3>Dr. Winthrop</h3>
+                            <p>Dr. Winthrop is the guardian of Missy, a three-year old Llaso mix, who he adopted at the shelter. Dr. Winthrop is passionate about spay and neuter and pet adoption, and works tireless hours outside the clinic, performing free spay and neuter surgeries for the shelter.</p>
+                        </div><!-- info -->
+                    </div> <!-- inner row -->
+                </div> <!-- doctor -->
+                <div class="doctor col-lg-4">
+                    <div class="row">
+                        <div class="photo col-xs-6 col-xs-offset-3 col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-2 col-lg-4 col-lg-offset-0">
+                            <img class="img-circle" src="images/doctor-chase.jpg" alt="Photo of Dr Sanders">
+                        </div><!-- photo -->
+                        <div class="info col-xs-8 col-xs-offset-2 col-sm-7 col-sm-offset-0 col-md-6 col-lg-8">
+                            <h3>Dr. Chase</h3>
+                            <p>Dr. Chase spends much of her free time helping the local rescue organization find homes for animals, such as Kibbles - a Maine Coon Cat who is part of the large Chase household, including two dogs, three cats, and a turtle.</p>
+                        </div><!-- info -->
+                    </div> <!-- inner row -->
+                </div> <!-- doctor -->
+                <div class="doctor col-lg-4">
+                    <div class="row">
+                        <div class="photo col-xs-6 col-xs-offset-3 col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-2 col-lg-4 col-lg-offset-0">
+                            <img class="img-circle" src="images/doctor-sanders.jpg" alt="Photo of Dr Sanders">
+                        </div><!-- photo -->
+                        <div class="info col-xs-8 col-xs-offset-2 col-sm-7 col-sm-offset-0 col-md-6 col-lg-8">
+                            <h3>Dr Sanders</h3>
+                            <p>Leroy walked into Dr. Sanders front door when he was moving into a new house. After searching for weeks for Leroy's guardians, he decided to make Leroy a part of his pet family, and now has three cats.</p>
+                        </div><!-- info -->
+                    </div> <!-- inner row -->
+                </div> <!-- doctor -->
+            </div><!-- outer row -->
+        </div><!-- container -->
+    </div><!-- staff page -->
+    <div class="page" id="testimonials">
+        <div class="container-fluid" ng-include="template.testimonial">
+        </div><!-- container -->
+    </div><!-- testimonials page -->
+</div><!-- main -->
+<footer>
+    <div class="content container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <p>Call us toll-free at <span class="phone">888-555-1212</span></p>
+                <p>
+                    All contents &copy; 2016 <a href="#">Kitchen Cuisine</a>. All rights reserved.
+                </p>
+                <p><span app-version></span></p>
+            </div><!-- col-sm-6 -->
+            <div class="col-sm-6">
+                <nav class="navbar navbar-default" role="navigation">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Terms of use</a></li>
+                        <li><a href="#">Privacy policy</a></li>
+                    </ul>
+                </nav>
+            </div><!-- col-sm-6 -->
+        </div><!-- row -->
+    </div><!-- content container -->
+</footer>
+<toast></toast>

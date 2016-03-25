@@ -1,13 +1,60 @@
-<!DOCTYPE html> 
-<html xmlns="http://www.w3.org/1999/xhtml"> 
-<head> 
-<title>Home</title> 
-<meta name="viewport" content="width=device-width, initial-scale=1"> 
-<link href='http://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'> 
-<link href='http://fonts.googleapis.com/css?family=Denk+One' rel='stylesheet' type='text/css'> 
-</head> 
-<body> 
-<h2>Happy New Year 2015...</h2> 
-<h3>Ready, Set &amp; Go...</h3>    
-</body> 
-</html> 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kitchen Cuisine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oswald|Lato|Roboto:400,500,700|Open+Sans:600,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href="font-awesome.min.css" rel="stylesheet" />
+    <link href="toast.min.css" rel="stylesheet" />
+    <link href="bootstrap.min.css" rel="stylesheet" />
+    <link href="bamboo.min.css" rel="stylesheet" />
+
+    <script src="libs/es6-shim.min.js"></script>
+    <script src="libs/system-polyfills.js"></script>
+
+    <script src="libs/angular2-polyfills.js"></script>
+    <script src="libs/system.js"></script>
+    <script src="libs/Rx.js"></script>
+    <script src="libs/angular2.dev.js"></script>
+    <script src="libs/router.dev.js"></script>
+
+    <script>
+        document.write('<base href="' + document.location + '" />');
+        //function sleep(milliseconds) {
+        //    var start = new Date().getTime();
+        //    for (var i = 0; i < 1e7; i++) {
+        //        if ((new Date().getTime() - start) > milliseconds) {
+        //            break;
+        //        }
+        //    }
+        //}
+        //sleep(80000);
+
+        System.config({
+            packages: {
+                scripts: {
+                    defaultExtension: 'js'
+                }
+            }
+        });
+        System.import('scripts/main').then(null, console.error.bind(console));
+    </script>
+</head>
+
+<body>
+    <my-app>
+        <div class="spinner_container">
+            <div class="spinner">
+                <div class="curve_top_left"></div>
+                <div class="curve_bottom_right"></div>
+                <div class="curve_top_right"></div>
+                <div class="curve_bottom_left"></div>
+                <div class="circle_center"></div>
+            </div>
+        </div>
+    </my-app>
+</body>
+</html>

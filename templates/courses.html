@@ -1,0 +1,30 @@
+<div class="bamboo-container menu-panel">
+    <div id="category-pane" class="panel panel-default">
+        <div class="panel-heading">Categories</div>
+        <div class="panel-body" *ngFor="#item of categories">
+            {{item.Name}}
+            <span class="icon-wrap icon-effect-1 icon-effect-1a">
+                <span class="glyphicon glyphicon-chevron-right icon pull-right" aria-hidden="true" (click)="onSelectCategory(item)"></span>
+            </span>
+        </div>
+    </div>
+    <div id="course-pane" class="panel panel-default">
+        <div class="panel-heading">{{ selectedCategory.Name }}</div>
+        <div class="panel-body" *ngFor="#item of courses | myCoursePipe: selectedCategory.Id">
+            <div class="media">
+                <div class="media-left">
+                    <img class="media-object" [src]="item.ImageUrl">
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{item.Name}}</h4>
+                    {{item.Description}}<br />
+                    <strong>$ {{item.Price|number:'.2-2'}}</strong>
+                    <button type="button" class="btn btn-default btn-sm pull-right" (click)="onPlaceOrder(item)">
+                        <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
+                        Place Order
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
