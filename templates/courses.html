@@ -9,18 +9,24 @@
                     <div class="course-items-pane">
                         <span class="item">{{item.Name}}</span>
                         <span class="price">{{item.Price|number:'.2-2'}}</span>
-                        <button type="button" class="btn btn-default btn-sm pull-right" (click)="onPlaceOrder(item)">
-                            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                        <button type="button" class="btn btn-default btn-sm pull-right" (click)="onToggle()">
+                            <span class="glyphicon" [ngClass]="{'glyphicon-chevron-up': !isDown, 'glyphicon-chevron-down': isDown}" aria-hidden="true"></span>
+                        </button>
+                        <button type="button" class="btn btn-default btn-sm pull-right" (click)="onShowImage(item)">
+                            <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
                         </button>
                         <button type="button" class="btn btn-default btn-sm pull-right" (click)="onPlaceOrder(item)">
                             <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
                         </button>
                     </div>
+                    <div class="description" [ngClass]="{'show': isShown, 'hide': !isShown}">
+                            {{item.Description}}
+                    </div>
                 </li>
             </ul>
         </div>
     </div>
-    
+
     <div id="category-pane" class="panel panel-default">
         <div class="panel-heading">
             <h1>Categories</h1>

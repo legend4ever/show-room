@@ -21,11 +21,13 @@ var CoursesComponent = (function () {
         this.toastService = toastService;
         this.courses = new Array();
         this.categories = new Array();
+        this.isShown = false;
+        this.isDown = true;
     }
     CoursesComponent.prototype.ngOnInit = function () {
         this.categories = this.menuService.getCategories();
         this.courses = this.menuService.getCourses();
-        this.selectedCategory = this.categories[1];
+        this.selectedCategory = this.categories[0];
     };
     CoursesComponent.prototype.onSelectCategory = function (item) {
         this.selectedCategory = item;
@@ -36,9 +38,16 @@ var CoursesComponent = (function () {
         var _this = this;
         //var el = <HTMLSelectElement>event.target;
         this.categories.forEach(function (item) {
-            if (item.Id == Number.parseInt(event))
+            if (item.Id === Number.parseInt(event))
                 _this.selectedCategory = item;
         });
+    };
+    CoursesComponent.prototype.onToggle = function () {
+        this.isDown = !this.isDown;
+        this.isShown = !this.isShown;
+    };
+    CoursesComponent.prototype.onShowImage = function () {
+        this.toastService.activate("Feature will be ready soon.");
     };
     CoursesComponent.prototype.onPlaceOrder = function (item) {
         this.menuService.addToOrder(item);

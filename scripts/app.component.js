@@ -15,6 +15,7 @@ var router_1 = require('angular2/router');
 var courses_component_1 = require('./components/menu/courses.component');
 var course_component_1 = require('./components/menu/course.component');
 var order_component_1 = require('./components/menu/order.component');
+var soon_component_1 = require('./components/menu/soon.component');
 var toast_component_1 = require('./components/toast.component');
 var menu_service_1 = require('./services/menu.service');
 var toast_service_1 = require('./services/toast.service');
@@ -71,7 +72,8 @@ var AppComponent = (function () {
         router_1.RouteConfig([
             { path: '/courses', name: 'Courses', component: courses_component_1.CoursesComponent, useAsDefault: true },
             { path: '/course/:id', name: 'Course', component: course_component_1.CourseComponent },
-            { path: '/order', name: 'Order', component: order_component_1.OrderComponent }
+            { path: '/order', name: 'Order', component: order_component_1.OrderComponent },
+            { path: '/soon', name: 'Soon', component: soon_component_1.SoonComponent }
         ]), 
         __metadata('design:paramtypes', [Window, toast_service_1.ToastService])
     ], AppComponent);
