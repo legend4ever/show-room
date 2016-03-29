@@ -16,11 +16,14 @@ var Slide = (function () {
         this.carousel = carousel;
         this.addClass = true;
     }
-    Slide.prototype.ngAfterViewInit = function () {
+    Slide.prototype.ngAfterViewChecked = function () {
         var divEl = (this.carouselItem.nativeElement);
-        var imgEl = divEl.children.item(0);
-        divEl.setAttribute('style', 'background-image: url(' + imgEl.currentSrc + ')');
-        imgEl.remove();
+        if (divEl.children.item(0) instanceof HTMLImageElement) {
+            var imgEl = divEl.children.item(0);
+            console.log("Image element => " + imgEl);
+            divEl.setAttribute('style', 'background-image: url(' + imgEl.src + ')');
+            imgEl.remove();
+        }
     };
     Slide.prototype.ngOnInit = function () {
         this.carousel.addSlide(this);
