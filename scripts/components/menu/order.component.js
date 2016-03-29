@@ -50,7 +50,7 @@ var OrderComponent = (function () {
     OrderComponent = __decorate([
         core_1.Component({
             selector: 'my-order',
-            templateUrl: '/templates/order.html',
+            templateUrl: 'templates/order.html',
             directives: [toast_component_1.ToastComponent]
         }), 
         __metadata('design:paramtypes', [menu_service_1.MenuService, toast_service_1.ToastService])
