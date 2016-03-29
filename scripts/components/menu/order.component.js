@@ -41,19 +41,16 @@ var OrderComponent = (function () {
             this.toastService.activate(item.Name + " removed from order successfully.");
         }
     };
-    OrderComponent.prototype.onUpdate = function () {
-        this.menuService.replaceOrder(this.items);
-        this.toastService.activate("Order information updated.");
-    };
+    //onUpdate() {
+    //    this.menuService.replaceOrder(this.items);
+    //    this.toastService.activate("Order information updated.");
+    //}
     OrderComponent.prototype.onCheckout = function () {
-        console.log("Order items refreshed!");
-        this.items = null;
-        this.items = this.menuService.getOrder();
     };
     OrderComponent = __decorate([
         core_1.Component({
             selector: 'my-order',
-            templateUrl: 'templates/order.html',
+            templateUrl: '/templates/order.html',
             directives: [toast_component_1.ToastComponent]
         }), 
         __metadata('design:paramtypes', [menu_service_1.MenuService, toast_service_1.ToastService])

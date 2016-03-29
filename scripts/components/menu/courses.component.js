@@ -29,6 +29,16 @@ var CoursesComponent = (function () {
     };
     CoursesComponent.prototype.onSelectCategory = function (item) {
         this.selectedCategory = item;
+        var el = document.getElementById('category-drop-down');
+        el.value = item.Id.toString();
+    };
+    CoursesComponent.prototype.onSelectCategoryAsId = function (event) {
+        var _this = this;
+        //var el = <HTMLSelectElement>event.target;
+        this.categories.forEach(function (item) {
+            if (item.Id == Number.parseInt(event))
+                _this.selectedCategory = item;
+        });
     };
     CoursesComponent.prototype.onPlaceOrder = function (item) {
         this.menuService.addToOrder(item);
@@ -37,7 +47,7 @@ var CoursesComponent = (function () {
     CoursesComponent = __decorate([
         core_1.Component({
             selector: 'my-courses',
-            templateUrl: 'templates/courses.html',
+            templateUrl: '/templates/courses.html',
             pipes: [course_pipe_1.CoursePipe],
             directives: [course_component_1.CourseComponent, toast_component_1.ToastComponent]
         }), 

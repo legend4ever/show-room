@@ -74,26 +74,30 @@
                     </a>
                 </li>
             </ul>-->
-            <div class="menu_container">
-                <a [routerLink]="['Courses']" class="menu_item">
+            <div class="menu-container">
+                <a [routerLink]="['Courses']" class="menu-item">
                     <span class="icon-wrap icon-effect-3 icon-effect-3b">
                         <span class="glyphicon glyphicon-list-alt icon" aria-hidden="true"></span>
                     </span>
+                    <span id="menu-menu" class="menu-text" >Menu</span>
                 </a>
-                <a [routerLink]="['Order']" class="menu_item">
+                <a [routerLink]="['Order']" class="menu-item">
                     <span class="icon-wrap icon-effect-3 icon-effect-3b">
                         <span class="glyphicon glyphicon-inbox icon" aria-hidden="true"></span>
                     </span>
+                    <span id="checkout-menu" class="menu-text">Checkout</span>
                 </a>
-                <a [routerLink]="['Order']" class="menu_item">
+                <a [routerLink]="['Order']" class="menu-item">
                     <span class="icon-wrap icon-effect-3 icon-effect-3b">
                         <span class="glyphicon glyphicon-print icon" aria-hidden="true"></span>
                     </span>
+                    <span id="print-menu" class="menu-text">Print</span>
                 </a>
-                <a [routerLink]="['Order']" class="menu_item">
+                <a [routerLink]="['Order']" class="menu-item">
                     <span class="icon-wrap icon-effect-3 icon-effect-3b">
                         <span class="glyphicon glyphicon-phone icon" aria-hidden="true"></span>
                     </span>
+                    <span id="phone-menu" class="menu-text">Phone</span>
                 </a>
             </div>
             <router-outlet></router-outlet>

@@ -29,18 +29,19 @@ var MenuService = (function () {
             return _this._categories;
         };
         this.getOrder = function () {
-            var basket = new Array();
-            _this._orders.forEach(function (x) {
-                basket.push({
-                    Id: _this._orders.length + 1,
-                    ItemId: x.Id,
-                    Name: x.Name,
-                    ImageUrl: x.ImageUrl,
-                    Qty: 1,
-                    Price: x.Price
-                });
-            });
-            return basket;
+            //var basket: Array<OrderModel> = new Array<OrderModel>();
+            //this._orders.forEach((x) => {
+            //    basket.push({
+            //        Id: this._orders.length + 1,
+            //        ItemId: x.Id,
+            //        Name: x.Name,
+            //        ImageUrl: x.ImageUrl,
+            //        Qty: 1,
+            //        Price: x.Price
+            //    });
+            //});
+            //return basket;
+            return _this._orders;
         };
         this.addToOrder = function (item) {
             if (_this._orders === null)
