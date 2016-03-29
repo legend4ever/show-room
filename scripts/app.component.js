@@ -64,7 +64,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            templateUrl: 'bamboo-house/templates/app.html',
+            templateUrl: '/templates/app.html',
             directives: [courses_component_1.CoursesComponent, course_component_1.CourseComponent, toast_component_1.ToastComponent, carousel_1.CAROUSEL_DIRECTIVES, router_1.ROUTER_DIRECTIVES],
             providers: [menu_service_1.MenuService, toast_service_1.ToastService]
         }),

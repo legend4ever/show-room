@@ -21,7 +21,7 @@ var CourseComponent = (function () {
     CourseComponent = __decorate([
         core_1.Component({
             selector: 'my-course',
-            templateUrl: 'bamboo-house/templates/course.html',
+            templateUrl: '/templates/course.html',
             outputs: ['itemAdded']
         }), 
         __metadata('design:paramtypes', [])
