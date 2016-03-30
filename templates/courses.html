@@ -9,8 +9,8 @@
                     <div class="course-items-pane">
                         <span class="item">{{item.Name}}</span>
                         <span class="price">{{item.Price|number:'.2-2'}}</span>
-                        <button type="button" class="btn btn-default btn-sm pull-right" (click)="onToggle()">
-                            <span class="glyphicon" [ngClass]="{'glyphicon-chevron-up': !isDown, 'glyphicon-chevron-down': isDown}" aria-hidden="true"></span>
+                        <button #toggleButton [id]="item.Id" type="button" class="btn btn-default btn-sm pull-right" (click)="onToggle(item, toggleButton)">
+                            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
                         </button>
                         <button type="button" class="btn btn-default btn-sm pull-right" (click)="onShowImage(item)">
                             <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
@@ -19,7 +19,7 @@
                             <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
                         </button>
                     </div>
-                    <div class="description" [ngClass]="{'show': isShown, 'hide': !isShown}">
+                    <div class="description" style="display: none">
                             {{item.Description}}
                     </div>
                 </li>

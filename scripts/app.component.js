@@ -33,7 +33,7 @@ var AppComponent = (function () {
         this.toastService.activate("Application initialization completed.");
     };
     AppComponent.prototype.addSlide = function () {
-        if (!this.isMobile()) {
+        if (this.isMobile()) {
             this.slides.push({ image: 'images/meatball.m.jpg', text: 'Meatball' });
             this.slides.push({ image: 'images/pork.m.jpg', text: 'Pork' });
             this.slides.push({ image: 'images/lobster.m.jpg', text: 'Lobster' });

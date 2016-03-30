@@ -21,9 +21,14 @@ var CoursesComponent = (function () {
         this.toastService = toastService;
         this.courses = new Array();
         this.categories = new Array();
-        this.isShown = false;
-        this.isDown = true;
     }
+    Object.defineProperty(CoursesComponent.prototype, "key", {
+        get: function () {
+            return Math.floor((Math.random() * 1000) + 1);
+        },
+        enumerable: true,
+        configurable: true
+    });
     CoursesComponent.prototype.ngOnInit = function () {
         this.categories = this.menuService.getCategories();
         this.courses = this.menuService.getCourses();
@@ -42,9 +47,19 @@ var CoursesComponent = (function () {
                 _this.selectedCategory = item;
         });
     };
-    CoursesComponent.prototype.onToggle = function () {
-        this.isDown = !this.isDown;
-        this.isShown = !this.isShown;
+    CoursesComponent.prototype.onToggle = function (item, el) {
+        var divEl = el.parentElement.nextElementSibling;
+        var spanEl = el.firstElementChild;
+        if (divEl.style.display === "none") {
+            divEl.style.display = "inline-block";
+            spanEl.classList.remove("glyphicon-chevron-down");
+            spanEl.classList.add("glyphicon-chevron-up");
+        }
+        else {
+            divEl.style.display = "none";
+            spanEl.classList.remove("glyphicon-chevron-up");
+            spanEl.classList.add("glyphicon-chevron-down");
+        }
     };
     CoursesComponent.prototype.onShowImage = function () {
         this.toastService.activate("Feature will be ready soon.");

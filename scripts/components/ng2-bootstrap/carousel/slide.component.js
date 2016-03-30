@@ -20,7 +20,6 @@ var Slide = (function () {
         var divEl = (this.carouselItem.nativeElement);
         if (divEl.children.item(0) instanceof HTMLImageElement) {
             var imgEl = divEl.children.item(0);
-            console.log("Image element => " + imgEl);
             divEl.setAttribute('style', 'background-image: url(' + imgEl.src + ')');
             imgEl.remove();
         }
