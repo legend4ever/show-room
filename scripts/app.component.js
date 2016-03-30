@@ -33,8 +33,18 @@ var AppComponent = (function () {
         this.toastService.activate("Application initialization completed.");
     };
     AppComponent.prototype.addSlide = function () {
-        if (this.isMobile()) {
-            console.log("Mobile device detected!");
+        if (!this.isMobile()) {
+            this.slides.push({ image: 'images/meatball.m.jpg', text: 'Meatball' });
+            this.slides.push({ image: 'images/pork.m.jpg', text: 'Pork' });
+            this.slides.push({ image: 'images/lobster.m.jpg', text: 'Lobster' });
+            this.slides.push({ image: 'images/sweet-sour-pork.m.jpg', text: 'Sweet Sour Pork' });
+            this.slides.push({ image: 'images/duck.m.jpg', text: 'Duck' });
+            this.slides.push({ image: 'images/egg-roll.m.jpg', text: 'Egg-roll' });
+            this.slides.push({ image: 'images/brown-sauce-pork.m.jpg', text: 'Brown Sauce Pork' });
+            this.slides.push({ image: 'images/chicken.m.jpg', text: 'Chicken' });
+            this.slides.push({ image: 'images/chicken-shrimp.m.jpg', text: 'Chicken Shrimp' });
+            this.slides.push({ image: 'images/combination.m.jpg', text: 'Combination' });
+            this.slides.push({ image: 'images/crab-pot.m.jpg', text: 'Crab Pot' });
         }
         else {
             this.slides.push({ image: 'images/meatball.jpg', text: 'Meatball' });
@@ -48,7 +58,6 @@ var AppComponent = (function () {
             this.slides.push({ image: 'images/chicken-shrimp.jpg', text: 'Chicken Shrimp' });
             this.slides.push({ image: 'images/combination.jpg', text: 'Combination' });
             this.slides.push({ image: 'images/crab-pot.jpg', text: 'Crab Pot' });
-            console.log("Desktop device detected!");
         }
     };
     AppComponent.prototype.removeSlide = function (index) {
