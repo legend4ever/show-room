@@ -20,7 +20,7 @@
                         </button>
                     </div>
                     <div class="description" style="display: none">
-                            {{item.Description}}
+                        {{item.Description}}
                     </div>
                 </li>
             </ul>
@@ -45,7 +45,7 @@
         <div class="panel-body">
             <div class="media" *ngFor="#item of courses | myCoursePipe: selectedCategory.Id">
                 <div class="media-left">
-                    <img class="media-object" [src]="item.ImageUrl">
+                    <img class="media-object" [src]="item.ImageUrl" [alt]="item.Name">
                 </div>
                 <div class="media-body">
                     <h4 class="media-heading">{{item.Name}}</h4>

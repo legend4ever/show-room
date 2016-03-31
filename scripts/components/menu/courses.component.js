@@ -13,22 +13,21 @@ var core_1 = require('angular2/core');
 var course_component_1 = require('./course.component');
 var course_pipe_1 = require('../../pipes/course.pipe');
 var toast_component_1 = require('../toast.component');
+var modal_component_1 = require('../modal.component');
 var menu_service_1 = require('../../services/menu.service');
 var toast_service_1 = require('../../services/toast.service');
+var modal_service_1 = require('../../services/modal.service');
 var CoursesComponent = (function () {
-    function CoursesComponent(menuService, toastService) {
+    function CoursesComponent(menuService, toastService, modalService) {
         this.menuService = menuService;
         this.toastService = toastService;
+        this.modalService = modalService;
         this.courses = new Array();
         this.categories = new Array();
     }
-    Object.defineProperty(CoursesComponent.prototype, "key", {
-        get: function () {
-            return Math.floor((Math.random() * 1000) + 1);
-        },
-        enumerable: true,
-        configurable: true
-    });
+    //public get key(): number {
+    //    return Math.floor((Math.random() * 1000) + 1);
+    //}
     CoursesComponent.prototype.ngOnInit = function () {
         this.categories = this.menuService.getCategories();
         this.courses = this.menuService.getCourses();
@@ -39,11 +38,11 @@ var CoursesComponent = (function () {
         var el = document.getElementById('category-drop-down');
         el.value = item.Id.toString();
     };
-    CoursesComponent.prototype.onSelectCategoryAsId = function (event) {
+    CoursesComponent.prototype.onSelectCategoryAsId = function (Id) {
         var _this = this;
         //var el = <HTMLSelectElement>event.target;
         this.categories.forEach(function (item) {
-            if (item.Id === Number.parseInt(event))
+            if (item.Id === Number.parseInt(Id))
                 _this.selectedCategory = item;
         });
     };
@@ -61,21 +60,21 @@ var CoursesComponent = (function () {
             spanEl.classList.add("glyphicon-chevron-down");
         }
     };
-    CoursesComponent.prototype.onShowImage = function () {
-        this.toastService.activate("Feature will be ready soon.");
+    CoursesComponent.prototype.onShowImage = function (item) {
+        this.modalService.activate("", item.Name, item.ImageUrl);
     };
     CoursesComponent.prototype.onPlaceOrder = function (item) {
         this.menuService.addToOrder(item);
-        this.toastService.activate(item.Name + " added to order successfully.");
+        this.toastService.activate(item.Name + " added.");
     };
     CoursesComponent = __decorate([
         core_1.Component({
             selector: 'my-courses',
             templateUrl: 'templates/courses.html',
             pipes: [course_pipe_1.CoursePipe],
-            directives: [course_component_1.CourseComponent, toast_component_1.ToastComponent]
+            directives: [course_component_1.CourseComponent, toast_component_1.ToastComponent, modal_component_1.ModalComponent]
         }), 
-        __metadata('design:paramtypes', [menu_service_1.MenuService, toast_service_1.ToastService])
+        __metadata('design:paramtypes', [menu_service_1.MenuService, toast_service_1.ToastService, modal_service_1.ModalService])
     ], CoursesComponent);
     return CoursesComponent;
 })();

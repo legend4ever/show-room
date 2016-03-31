@@ -38,7 +38,7 @@ var OrderComponent = (function () {
         //console.log(this.items[idx].Name);
         if (idx !== -1) {
             this.items.splice(idx, 1);
-            this.toastService.activate(item.Name + " removed from order successfully.");
+            this.toastService.activate(item.Name + " removed.");
         }
     };
     //onUpdate() {

@@ -16,9 +16,11 @@ var courses_component_1 = require('./components/menu/courses.component');
 var course_component_1 = require('./components/menu/course.component');
 var order_component_1 = require('./components/menu/order.component');
 var soon_component_1 = require('./components/menu/soon.component');
+var modal_component_1 = require('./components/modal.component');
 var toast_component_1 = require('./components/toast.component');
 var menu_service_1 = require('./services/menu.service');
 var toast_service_1 = require('./services/toast.service');
+var modal_service_1 = require('./services/modal.service');
 var AppComponent = (function () {
     function AppComponent(window, toastService) {
         this.window = window;
@@ -29,7 +31,6 @@ var AppComponent = (function () {
         this.addSlide();
     }
     AppComponent.prototype.ngOnInit = function () {
-        console.log(this.toastService);
         this.toastService.activate("Application initialization completed.");
     };
     AppComponent.prototype.addSlide = function () {
@@ -75,8 +76,8 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'my-app',
             templateUrl: 'templates/app.html',
-            directives: [courses_component_1.CoursesComponent, course_component_1.CourseComponent, toast_component_1.ToastComponent, carousel_1.CAROUSEL_DIRECTIVES, router_1.ROUTER_DIRECTIVES],
-            providers: [menu_service_1.MenuService, toast_service_1.ToastService]
+            directives: [courses_component_1.CoursesComponent, course_component_1.CourseComponent, toast_component_1.ToastComponent, modal_component_1.ModalComponent, carousel_1.CAROUSEL_DIRECTIVES, router_1.ROUTER_DIRECTIVES],
+            providers: [menu_service_1.MenuService, toast_service_1.ToastService, modal_service_1.ModalService]
         }),
         router_1.RouteConfig([
             { path: '/courses', name: 'Courses', component: courses_component_1.CoursesComponent, useAsDefault: true },
