@@ -9,14 +9,18 @@ browser_1.bootstrap(app_component_1.AppComponent, [router_1.ROUTER_PROVIDERS,
     core_1.provide(Window, { useValue: window })]).then(function () {
     var toggle = document.getElementsByClassName('navbar-toggle')[0];
     var collapse = document.getElementsByClassName('navbar-collapse')[0];
-    var menuItem = document.getElementsByClassName('navbar-nav a');
+    var menuItem = document.querySelectorAll('.navbar-nav a');
     var toggleMenu = function () {
+        console.log('toggling...');
         collapse.classList.toggle('collapse');
         collapse.classList.toggle('in');
     };
     toggle.addEventListener('click', toggleMenu, false);
-    for (var i = 0; i < menuItem.item.length; i++) {
-        menuItem.item(i).addEventListener('click', toggleMenu, false);
+    console.log(menuItem);
+    console.log(menuItem.length);
+    for (var i = 0; i < menuItem.length; i++) {
+        console.log(menuItem[i]);
+        menuItem[i].addEventListener('click', toggleMenu, false);
     }
     window.onscroll = function () {
         var featureEl = document.getElementById('featured');
