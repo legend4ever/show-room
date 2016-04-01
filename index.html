@@ -22,6 +22,7 @@
     <script src="libs/Rx.js"></script>
     <script src="libs/angular2.dev.js"></script>
     <script src="libs/router.dev.js"></script>
+    <script src="libs/ng2-bootstrap.min.js"></script>
 
     <script>
         document.write('<base href="' + document.location + '" />');
@@ -40,6 +41,9 @@
                 scripts: {
                     defaultExtension: 'js'
                 }
+            },
+            map: {
+                moment: 'libs/moment.min.js'
             }
         });
         System.import('scripts/main').then(null, console.error.bind(console));

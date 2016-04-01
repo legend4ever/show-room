@@ -76,29 +76,29 @@
                 </li>
             </ul>-->
             <div class="menu-container">
-                <a [routerLink]="['Courses']" class="menu-item">
-                    <span class="icon-wrap icon-effect-3 icon-effect-3b">
-                        <span class="glyphicon glyphicon-list-alt icon" aria-hidden="true"></span>
+                <a [routerLink]="['Courses']" class="menu-item" tooltip="Menu">
+                    <span class="icon-wrap icon-effect-3 icon-effect-3b" tooltip="Menu">
+                        <span class="glyphicon glyphicon-list-alt icon" aria-hidden="true" tooltip="Menu"></span>
                     </span>
-                    <span id="menu-menu" class="menu-text" >Menu</span>
+                    <span id="menu-menu" class="menu-text"><span class="slide-2-bottom">Menu</span></span>
                 </a>
                 <a [routerLink]="['Order']" class="menu-item">
-                    <span class="icon-wrap icon-effect-3 icon-effect-3b">
+                    <span class="icon-wrap icon-effect-3 icon-effect-3b" tooltip="Checkout">
                         <span class="glyphicon glyphicon-inbox icon" aria-hidden="true"></span>
                     </span>
-                    <span id="checkout-menu" class="menu-text">Checkout</span>
+                    <span id="checkout-menu" class="menu-text"><span class="slide-2-bottom">Checkout</span></span>
                 </a>
                 <a [routerLink]="['Soon']" class="menu-item">
-                    <span class="icon-wrap icon-effect-3 icon-effect-3b">
+                    <span class="icon-wrap icon-effect-3 icon-effect-3b" tooltip="Print Receipt">
                         <span class="glyphicon glyphicon-print icon" aria-hidden="true"></span>
                     </span>
-                    <span id="print-menu" class="menu-text">Print</span>
+                    <span id="print-menu" class="menu-text"><span class="slide-2-bottom">Print</span></span>
                 </a>
                 <a [routerLink]="['Soon']" class="menu-item">
-                    <span class="icon-wrap icon-effect-3 icon-effect-3b">
+                    <span class="icon-wrap icon-effect-3 icon-effect-3b" tooltip="Support">
                         <span class="glyphicon glyphicon-phone icon" aria-hidden="true"></span>
                     </span>
-                    <span id="phone-menu" class="menu-text">Phone</span>
+                    <span id="phone-menu" class="menu-text"><span class="slide-2-bottom">Phone</span></span>
                 </a>
             </div>
             <router-outlet></router-outlet>

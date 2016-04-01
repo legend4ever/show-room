@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('angular2/core');
+var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
 var carousel_1 = require('./components/ng2-bootstrap/carousel');
 var router_1 = require('angular2/router');
 var courses_component_1 = require('./components/menu/courses.component');
@@ -76,7 +77,7 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'my-app',
             templateUrl: 'templates/app.html',
-            directives: [courses_component_1.CoursesComponent, course_component_1.CourseComponent, toast_component_1.ToastComponent, modal_component_1.ModalComponent, carousel_1.CAROUSEL_DIRECTIVES, router_1.ROUTER_DIRECTIVES],
+            directives: [courses_component_1.CoursesComponent, course_component_1.CourseComponent, toast_component_1.ToastComponent, modal_component_1.ModalComponent, carousel_1.CAROUSEL_DIRECTIVES, router_1.ROUTER_DIRECTIVES, ng2_bootstrap_1.TOOLTIP_DIRECTIVES],
             providers: [menu_service_1.MenuService, toast_service_1.ToastService, modal_service_1.ModalService]
         }),
         router_1.RouteConfig([

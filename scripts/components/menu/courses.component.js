@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('angular2/core');
+var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
 var course_component_1 = require('./course.component');
 var course_pipe_1 = require('../../pipes/course.pipe');
 var toast_component_1 = require('../toast.component');
@@ -72,7 +73,7 @@ var CoursesComponent = (function () {
             selector: 'my-courses',
             templateUrl: 'templates/courses.html',
             pipes: [course_pipe_1.CoursePipe],
-            directives: [course_component_1.CourseComponent, toast_component_1.ToastComponent, modal_component_1.ModalComponent]
+            directives: [course_component_1.CourseComponent, toast_component_1.ToastComponent, modal_component_1.ModalComponent, ng2_bootstrap_1.TOOLTIP_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [menu_service_1.MenuService, toast_service_1.ToastService, modal_service_1.ModalService])
     ], CoursesComponent);

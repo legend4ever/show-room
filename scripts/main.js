@@ -11,15 +11,11 @@ browser_1.bootstrap(app_component_1.AppComponent, [router_1.ROUTER_PROVIDERS,
     var collapse = document.getElementsByClassName('navbar-collapse')[0];
     var menuItem = document.querySelectorAll('.navbar-nav a');
     var toggleMenu = function () {
-        console.log('toggling...');
         collapse.classList.toggle('collapse');
         collapse.classList.toggle('in');
     };
     toggle.addEventListener('click', toggleMenu, false);
-    console.log(menuItem);
-    console.log(menuItem.length);
     for (var i = 0; i < menuItem.length; i++) {
-        console.log(menuItem[i]);
         menuItem[i].addEventListener('click', toggleMenu, false);
     }
     window.onscroll = function () {
