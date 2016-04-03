@@ -10,14 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('angular2/core');
-var ModalService = (function () {
-    function ModalService() {
+var ConfirmService = (function () {
+    function ConfirmService() {
     }
-    ModalService = __decorate([
+    ConfirmService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], ModalService);
-    return ModalService;
+    ], ConfirmService);
+    return ConfirmService;
 })();
-exports.ModalService = ModalService;
-//# sourceMappingURL=modal.service.js.map
+exports.ConfirmService = ConfirmService;
+//# sourceMappingURL=confirm.service.js.map

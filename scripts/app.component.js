@@ -9,6 +9,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 var core_1 = require('angular2/core');
 var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
 var carousel_1 = require('./components/ng2-bootstrap/carousel');
@@ -17,11 +20,13 @@ var courses_component_1 = require('./components/menu/courses.component');
 var course_component_1 = require('./components/menu/course.component');
 var order_component_1 = require('./components/menu/order.component');
 var soon_component_1 = require('./components/menu/soon.component');
-var modal_component_1 = require('./components/modal.component');
+var confirm_component_1 = require('./components/confirm.component');
 var toast_component_1 = require('./components/toast.component');
 var menu_service_1 = require('./services/menu.service');
 var toast_service_1 = require('./services/toast.service');
-var modal_service_1 = require('./services/modal.service');
+var confirm_service_1 = require('./services/confirm.service');
+var frame_component_1 = require('./components/frame.component');
+var frame_service_1 = require('./services/frame.service');
 var AppComponent = (function () {
     function AppComponent(window, toastService) {
         this.window = window;
@@ -77,15 +82,16 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'my-app',
             templateUrl: 'templates/app.html',
-            directives: [courses_component_1.CoursesComponent, course_component_1.CourseComponent, toast_component_1.ToastComponent, modal_component_1.ModalComponent, carousel_1.CAROUSEL_DIRECTIVES, router_1.ROUTER_DIRECTIVES, ng2_bootstrap_1.TOOLTIP_DIRECTIVES],
-            providers: [menu_service_1.MenuService, toast_service_1.ToastService, modal_service_1.ModalService]
+            directives: [courses_component_1.CoursesComponent, course_component_1.CourseComponent, toast_component_1.ToastComponent, confirm_component_1.ConfirmComponent, frame_component_1.FrameComponent, carousel_1.CAROUSEL_DIRECTIVES, router_1.ROUTER_DIRECTIVES, ng2_bootstrap_1.TOOLTIP_DIRECTIVES],
+            providers: [menu_service_1.MenuService, toast_service_1.ToastService, confirm_service_1.ConfirmService, frame_service_1.FrameService]
         }),
         router_1.RouteConfig([
             { path: '/courses', name: 'Courses', component: courses_component_1.CoursesComponent, useAsDefault: true },
             { path: '/course/:id', name: 'Course', component: course_component_1.CourseComponent },
             { path: '/order', name: 'Order', component: order_component_1.OrderComponent },
             { path: '/soon', name: 'Soon', component: soon_component_1.SoonComponent }
-        ]), 
+        ]),
+        __param(0, core_1.Inject(Window)), 
         __metadata('design:paramtypes', [Window, toast_service_1.ToastService])
     ], AppComponent);
     return AppComponent;

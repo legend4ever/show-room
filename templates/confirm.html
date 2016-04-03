@@ -1,4 +1,4 @@
-<div id="dialog" class="box-container">
+<div id="dialog" class="confirm-container">
     <div class="box">
         <button id="closeButton" type="button" class="btn btn-danger btn-xs pull-right">X</button>
         <h3 class="title">{{title}}</h3>
@@ -6,9 +6,10 @@
             <img *ngIf="link" [src]="link">
             <p *ngIf="message">{{message}}</p>
         </div>
-        <div *ngIf="message" class="dialog-button-bar">
-            <button id="cancelButton" type="button" class="btn btn-success btn-sm">{{cancelText}}</button>
-            <button id="okButton" type="button" class="btn btn-success btn-sm">{{okText}}</button>
+        <div class="button-bar">
+            &nbsp;
+            <button id="cancelButton" type="button" class="btn btn-success btn-sm pull-right">{{cancelText}}</button>
+            <button id="okButton" type="button" class="btn btn-success btn-sm pull-right">{{okText}}</button>
         </div>
     </div>
 </div>

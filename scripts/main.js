@@ -33,9 +33,9 @@ browser_1.bootstrap(app_component_1.AppComponent, [router_1.ROUTER_PROVIDERS,
         for (var i = 0; i < anchors.length; i++) {
             var a = anchors[i];
             var ref = a.getAttribute("href").substr(1);
-            if (ref !== '') {
+            if (ref.trim() !== '') {
                 var e = document.getElementById(ref);
-                if (e.offsetTop <= window.scrollY && e.offsetTop + e.clientHeight > window.scrollY) {
+                if (e.offsetTop <= (window.scrollY || window.pageYOffset) && e.offsetTop + e.clientHeight > (window.scrollY || window.pageYOffset)) {
                     a.parentElement.classList.add('active');
                 }
                 else {
@@ -44,8 +44,8 @@ browser_1.bootstrap(app_component_1.AppComponent, [router_1.ROUTER_PROVIDERS,
             }
         }
         var el = document.querySelector('header nav');
-        //console.log(' ==> ' + window.scrollY + ' | ' + Number(style.getPropertyValue('height').replace('px', '')));
-        if (window.scrollY >= Number(style.getPropertyValue('height').replace('px', ''))) {
+        //console.log(' ==> ' + (window.scrollY || window.pageYOffset) + ' | ' + Number(style.getPropertyValue('height').replace('px', '')));
+        if ((window.scrollY || window.pageYOffset) >= Number(style.getPropertyValue('height').replace('px', ''))) {
             el.setAttribute('style', 'padding: 0');
             el.classList.add("mini-bar");
         }
@@ -55,25 +55,24 @@ browser_1.bootstrap(app_component_1.AppComponent, [router_1.ROUTER_PROVIDERS,
         }
     };
     // safai shim
-    var lastTime = 0;
-    var vendors = ['ms', 'moz', 'webkit', 'o'];
-    for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-        window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
-        window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
-    }
-    if (!window.requestAnimationFrame) {
-        window.requestAnimationFrame = (function (callback, element) {
-            var currTime = new Date().getTime();
-            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-            var id = window.setTimeout(function () { callback(currTime + timeToCall); }, timeToCall);
-            lastTime = currTime + timeToCall;
-            return id;
-        });
-    }
-    ;
-    if (!window.cancelAnimationFrame)
-        window.cancelAnimationFrame = function (id) {
-            clearTimeout(id);
-        };
+    //var lastTime = 0;
+    //var vendors = ['ms', 'moz', 'webkit', 'o'];
+    //for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+    //    window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+    //    window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
+    //}
+    //if (!window.requestAnimationFrame) {
+    //    window.requestAnimationFrame = <(callback: FrameRequestCallback) => number>((callback: any, element: any) : any => {
+    //        var currTime = new Date().getTime();
+    //        var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+    //        var id = window.setTimeout(() => { callback(currTime + timeToCall); }, timeToCall);
+    //        lastTime = currTime + timeToCall;
+    //        return id;
+    //    });
+    //};
+    //if (!window.cancelAnimationFrame)
+    //    window.cancelAnimationFrame = (id) => {
+    //        clearTimeout(id);
+    //    };
 });
 //# sourceMappingURL=main.js.map

@@ -15,13 +15,43 @@ var Slide = (function () {
     function Slide(carousel) {
         this.carousel = carousel;
         this.addClass = true;
+        this.isIE = function () {
+            var ua = window.navigator.userAgent;
+            // IE 10
+            // ua = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)';
+            // IE 11
+            // ua = 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko';
+            // IE 12 / Spartan
+            // ua = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0';
+            // Edge (IE 12+)
+            // ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586';
+            var msie = ua.indexOf('MSIE ');
+            //if (msie > 0) {
+            //   return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+            //}
+            var trident = ua.indexOf('Trident/');
+            //if (trident > 0) {
+            //    var rv = ua.indexOf('rv:');
+            //    return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+            //}
+            //var edge = ua.indexOf('Edge/');
+            //if (edge > 0) {
+            //    return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+            //}
+            return msie > 0 || trident > 0;
+        };
     }
-    Slide.prototype.ngAfterViewChecked = function () {
+    Slide.prototype.ngAfterViewInit = function () {
         var divEl = (this.carouselItem.nativeElement);
         if (divEl.children.item(0) instanceof HTMLImageElement) {
             var imgEl = divEl.children.item(0);
             divEl.setAttribute('style', 'background-image: url(' + imgEl.src + ')');
-            imgEl.remove();
+            if (this.isIE()) {
+                imgEl.setAttribute('style', 'display: none');
+            }
+            else {
+                imgEl.remove();
+            }
         }
     };
     Slide.prototype.ngOnInit = function () {

@@ -14,15 +14,18 @@ var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
 var course_component_1 = require('./course.component');
 var course_pipe_1 = require('../../pipes/course.pipe');
 var toast_component_1 = require('../toast.component');
-var modal_component_1 = require('../modal.component');
+var confirm_component_1 = require('../confirm.component');
 var menu_service_1 = require('../../services/menu.service');
 var toast_service_1 = require('../../services/toast.service');
-var modal_service_1 = require('../../services/modal.service');
+var confirm_service_1 = require('../../services/confirm.service');
+var frame_component_1 = require('../frame.component');
+var frame_service_1 = require('../../services/frame.service');
 var CoursesComponent = (function () {
-    function CoursesComponent(menuService, toastService, modalService) {
+    function CoursesComponent(menuService, toastService, confirmService, frameService) {
         this.menuService = menuService;
         this.toastService = toastService;
-        this.modalService = modalService;
+        this.confirmService = confirmService;
+        this.frameService = frameService;
         this.courses = new Array();
         this.categories = new Array();
     }
@@ -62,7 +65,15 @@ var CoursesComponent = (function () {
         }
     };
     CoursesComponent.prototype.onShowImage = function (item) {
-        this.modalService.activate("", item.Name, item.ImageUrl);
+        this.confirmService.activate("", item.Name, item.ImageUrl);
+        //this.confirmService.prompt("", item.Name, item.ImageUrl).then(ok => {
+        //    if (ok) {
+        //        this.toastService.activate("Confirmd..!");
+        //    }
+        //});
+    };
+    CoursesComponent.prototype.onShow = function (item) {
+        this.frameService.activate(item.ImageUrl);
     };
     CoursesComponent.prototype.onPlaceOrder = function (item) {
         this.menuService.addToOrder(item);
@@ -73,9 +84,9 @@ var CoursesComponent = (function () {
             selector: 'my-courses',
             templateUrl: 'templates/courses.html',
             pipes: [course_pipe_1.CoursePipe],
-            directives: [course_component_1.CourseComponent, toast_component_1.ToastComponent, modal_component_1.ModalComponent, ng2_bootstrap_1.TOOLTIP_DIRECTIVES]
+            directives: [course_component_1.CourseComponent, toast_component_1.ToastComponent, confirm_component_1.ConfirmComponent, frame_component_1.FrameComponent, ng2_bootstrap_1.TOOLTIP_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [menu_service_1.MenuService, toast_service_1.ToastService, modal_service_1.ModalService])
+        __metadata('design:paramtypes', [menu_service_1.MenuService, toast_service_1.ToastService, confirm_service_1.ConfirmService, frame_service_1.FrameService])
     ], CoursesComponent);
     return CoursesComponent;
 })();
