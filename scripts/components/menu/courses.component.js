@@ -18,14 +18,11 @@ var confirm_component_1 = require('../confirm.component');
 var menu_service_1 = require('../../services/menu.service');
 var toast_service_1 = require('../../services/toast.service');
 var confirm_service_1 = require('../../services/confirm.service');
-var frame_component_1 = require('../frame.component');
-var frame_service_1 = require('../../services/frame.service');
 var CoursesComponent = (function () {
-    function CoursesComponent(menuService, toastService, confirmService, frameService) {
+    function CoursesComponent(menuService, toastService, confirmService) {
         this.menuService = menuService;
         this.toastService = toastService;
         this.confirmService = confirmService;
-        this.frameService = frameService;
         this.courses = new Array();
         this.categories = new Array();
     }
@@ -72,9 +69,9 @@ var CoursesComponent = (function () {
         //    }
         //});
     };
-    CoursesComponent.prototype.onShow = function (item) {
-        this.frameService.activate(item.ImageUrl);
-    };
+    //onShow(item: ItemModel) {
+    //    this.frameService.activate(item.ImageUrl);
+    //}
     CoursesComponent.prototype.onPlaceOrder = function (item) {
         this.menuService.addToOrder(item);
         this.toastService.activate(item.Name + " added.");
@@ -84,9 +81,9 @@ var CoursesComponent = (function () {
             selector: 'my-courses',
             templateUrl: 'templates/courses.html',
             pipes: [course_pipe_1.CoursePipe],
-            directives: [course_component_1.CourseComponent, toast_component_1.ToastComponent, confirm_component_1.ConfirmComponent, frame_component_1.FrameComponent, ng2_bootstrap_1.TOOLTIP_DIRECTIVES]
+            directives: [course_component_1.CourseComponent, toast_component_1.ToastComponent, confirm_component_1.ConfirmComponent, ng2_bootstrap_1.TOOLTIP_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [menu_service_1.MenuService, toast_service_1.ToastService, confirm_service_1.ConfirmService, frame_service_1.FrameService])
+        __metadata('design:paramtypes', [menu_service_1.MenuService, toast_service_1.ToastService, confirm_service_1.ConfirmService])
     ], CoursesComponent);
     return CoursesComponent;
 })();

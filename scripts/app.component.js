@@ -25,8 +25,6 @@ var toast_component_1 = require('./components/toast.component');
 var menu_service_1 = require('./services/menu.service');
 var toast_service_1 = require('./services/toast.service');
 var confirm_service_1 = require('./services/confirm.service');
-var frame_component_1 = require('./components/frame.component');
-var frame_service_1 = require('./services/frame.service');
 var AppComponent = (function () {
     function AppComponent(window, toastService) {
         this.window = window;
@@ -82,8 +80,8 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'my-app',
             templateUrl: 'templates/app.html',
-            directives: [courses_component_1.CoursesComponent, course_component_1.CourseComponent, toast_component_1.ToastComponent, confirm_component_1.ConfirmComponent, frame_component_1.FrameComponent, carousel_1.CAROUSEL_DIRECTIVES, router_1.ROUTER_DIRECTIVES, ng2_bootstrap_1.TOOLTIP_DIRECTIVES],
-            providers: [menu_service_1.MenuService, toast_service_1.ToastService, confirm_service_1.ConfirmService, frame_service_1.FrameService]
+            directives: [courses_component_1.CoursesComponent, course_component_1.CourseComponent, toast_component_1.ToastComponent, confirm_component_1.ConfirmComponent, carousel_1.CAROUSEL_DIRECTIVES, router_1.ROUTER_DIRECTIVES, ng2_bootstrap_1.TOOLTIP_DIRECTIVES],
+            providers: [menu_service_1.MenuService, toast_service_1.ToastService, confirm_service_1.ConfirmService]
         }),
         router_1.RouteConfig([
             { path: '/courses', name: 'Courses', component: courses_component_1.CoursesComponent, useAsDefault: true },
